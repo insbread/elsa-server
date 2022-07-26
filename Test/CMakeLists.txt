@@ -6,7 +6,7 @@ set(TOP_DIR ${PROJECT_SOURCE_DIR}/..)
 
 include_directories(
     ${TOP_DIR}/SDK/include
-    ${TOP_DIR}/Common/include/lua-5.4.4/src
+    ${TOP_DIR}/Common/include/lua-5.1.5/src
 )
 
 link_directories(${TOP_DIR}/Common/libs)
