@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="1572" viewBox="0 0 2078 1572" width="2078" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css"><![CDATA[
+.st3 {fill:#191919;font-family:微软雅黑;font-size:10pt}
+.st4 {fill:#191919;font-family:微软雅黑;font-size:12pt;font-weight:bold}
+.st1 {fill:#191919;font-family:微软雅黑;font-size:12pt}
+.st2 {font-weight:bold}
+]]></style>
+    <defs/>
+    <g transform="translate(-17.5,-490)">
+        <g id="shape1" transform="translate(18.5,1476.37)">
+            <path fill-rule="evenodd" d="M0,0L501,0L501,313L0,313L0,0zM0,63L501,63L0,63zM0,121L501,121L0,121zM0,236L501,236L0,236z" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L501,0L501,313L0,313L0,0zM0,63L501,63L0,63zM0,121L501,121L0,121zM0,236L501,236L0,236z" fill="none"/>
+            <text xml:space="preserve" class="st1">
+                <tspan y="27" x="157">template &lt;typename T></tspan>
+                <tspan y="48" x="140">    </tspan>
+                <tspan y="48" class="st2" x="160">class ElsaCRefObjectImpl</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="88" x="4">- COUNTTYPE m_nRefer; //  引用计数</tspan>
+                <tspan y="107" x="4">- ElsaCMutex m_lock;  //  由于共享所以需要上锁</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="146" x="4">+ void AddRef(); 增加引用计数</tspan>
+                <tspan y="165" x="4">+ void Release(); 减少引用计数，减少引用后引用计数为0则自动delete销毁对象自身</tspan>
+                <tspan y="203" x="4"># void FinalRelease(); 最终引用计数为0时，调用这个函数自动delete销毁对象自身</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="255" x="4">继承类T，实现对T的引用计数，构造的时候必须采用new的方式构造该类，那么就能</tspan>
+                <tspan y="274" x="4">构造出一个关于T类型的对象的引用计数器，由于继承T，所以可以将该类在使用上看</tspan>
+                <tspan y="293" x="4">成是T类的对象</tspan>
+            </text>
+        </g>
+        <g id="shape2" transform="translate(209,1363.7)">
+            <path fill-rule="evenodd" stroke="#323232" d="M0,0L120,0L120,60L0,60L0,0z" fill="#ffffff"/>
+            <text xml:space="preserve" class="st3">
+                <tspan y="35.5" x="40">class T</tspan>
+            </text>
+        </g>
+        <g id="shape3" transform="translate(270.56,1423.7)">
+            <path stroke="#303030" d="M0,0L0,20.7L-0.1,20.7L-0.1,46.7" fill="none"/>
+            <path stroke-linecap="round" stroke-width="1" stroke="#303030" d="M2.9,46.7L-0.1,52.7L-3.1,46.7L2.9,46.7" fill="#303030"/>
+            <rect y="12.3" height="19" x="-12.1" width="26" fill="#ffffff"/>
+            <text xml:space="preserve" class="st3">
+                <tspan y="27.3" x="-12.1">继承</tspan>
+            </text>
+        </g>
+        <g id="shape4" transform="translate(680.5,1425.37)">
+            <path fill-rule="evenodd" d="M0,0L605,0L605,636L0,636L0,0zM0,63L605,63L0,63zM0,102L605,102L0,102zM0,559L605,559L0,559z" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L605,0L605,636L0,636L0,0zM0,63L605,63L0,63zM0,102L605,102L0,102zM0,559L605,559L0,559z" fill="none"/>
+            <text xml:space="preserve" class="st1">
+                <tspan y="27" x="199">    template &lt;typename T></tspan>
+                <tspan y="48" x="210.5">    </tspan>
+                <tspan y="48" class="st2" x="230.5">class ElsaCRefObject</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="88" x="4"># ElsaCRefObjectImpl&lt;T> *m_pRef; //  计数实现对象</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="127" x="4">+ ElsaCRefObject()</tspan>
+                <tspan y="146" x="4">       </tspan>
+                <tspan y="165" x="4">+ ElsaCRefObject(ElsaCRefObject&lt;T> &amp;obj) ;// 拷贝函数会拷贝计数对象，并增加引用计数</tspan>
+                <tspan y="184" x="4">+ ElsaCRefObject(ElsaCRefObjectImpl&lt;T> *pObj);// 拷贝计数对象也会增加引用计数</tspan>
+                <tspan y="203" x="4">+ virtual ~ElsaCRefObject() ;// 析构会自动减少引用次数</tspan>
+                <tspan y="241" x="4">+inline ElsaCRefObjectImpl&lt;T> *RawPtr()</tspan>
+                <tspan y="260" x="4">+inline const ElsaCRefObjectImpl&lt;T> *RawPtr() const</tspan>
+                <tspan y="298" x="4">+ inline operator T *()</tspan>
+                <tspan y="317" x="4">+ inline operator const T *()</tspan>
+                <tspan y="336" x="4">// 赋值函数：在减少之前的引用次数(如果存在)之后，增减需要赋值的引用计数器</tspan>
+                <tspan y="355" x="4">+ inline void operator=(ElsaCRefObject&lt;T> &amp;obj)</tspan>
+                <tspan y="374" x="4">+ inline void operator=(ElsaCRefObjectImpl&lt;T> *pObj)</tspan>
+                <tspan y="412" x="4">+ inline bool operator==(const ElsaCRefObject&lt;T> &amp;obj) const</tspan>
+                <tspan y="431" x="4">+ inline bool operator==(const ElsaCRefObjectImpl&lt;T> *pObj) const</tspan>
+                <tspan y="450" x="4">+ inline bool operator==(const int n) const ;// 主要目的是和0比，因为C定义的NULL本质上是0，所</tspan>
+                <tspan y="469" x="4">以需要重载</tspan>
+                <tspan y="488" x="4">+ inline bool operator!=(const ElsaCRefObject&lt;T> &amp;obj) const</tspan>
+                <tspan y="507" x="4">+ inline bool operator!=(const ElsaCRefObjectImpl&lt;T> &amp;pObj) const</tspan>
+                <tspan y="526" x="4">+ inline bool operator!=(const int n) const</tspan>
+                <tspan y="545" x="4">+ inline bool operator!() const</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="578" x="4">内部使用ElsaCRefObjectImpl管理T的对象的引用计数，使用的方法和智能指针类似：</tspan>
+                <tspan y="597" x="4">ElsaCRefObject&lt;T> a(new ElsaCRefObjectImpl&lt;T>());这个类能够实现多线程安全管理引用对象的计</tspan>
+                <tspan y="616" x="4">数</tspan>
+            </text>
+        </g>
+        <g id="shape5" transform="translate(519.5,1507.87)">
+            <path stroke="#323232" d="M0,0L156.6,0" fill="none"/>
+            <path stroke-linecap="round" stroke-width="1" stroke="#323232" d="M161,0L155.8,-3C156.3,-2.1,156.6,-1.1,156.6,0C156.6,1.1,156.3,2.1,155.8,3L161,0" fill="#323232"/>
+            <rect y="-9.5" height="19" x="72.3" width="26" fill="#ffffff"/>
+            <text xml:space="preserve" class="st3">
+                <tspan y="5.5" x="72.3">组合</tspan>
+            </text>
+        </g>
+        <g id="shape6" transform="translate(619.7,491)">
+            <path fill-rule="evenodd" d="M0,0L665.8,0L665.8,728L0,728L0,0zM0,42L665.8,42L0,42zM0,100L665.8,100L0,100z" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L665.8,0L665.8,728L0,728L0,0zM0,42L665.8,42L0,42zM0,100L665.8,100L0,100z" fill="none"/>
+            <text xml:space="preserve" class="st4">
+                <tspan y="27" x="247.9">class ElsaCAnsiString</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="67" x="4.4">- char *m_sStr;                //  需要保存的字符串</tspan>
+                <tspan y="86" x="4.4">- static const char *EmptyStr; //  空字符串的指针</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="125" x="4.4"># void *AllocAnsi(void *ptr, size_t newsize); 分配新的内存，如果ptr不为nullptr，则在ptr的基础上将其数据拷贝</tspan>
+                <tspan y="144" x="4.4">到新的内存上</tspan>
+                <tspan y="163" x="4.4"># void SetData(const char *data);设置新的字符串数据</tspan>
+                <tspan y="182" x="4.4"># void CatData(const char *data);将字符串data拼接到当前字符串的后面</tspan>
+                <tspan y="220" x="4.4">+ ElsaCAnsiString()</tspan>
+                <tspan y="239" x="4.4">+ ElsaCAnsiString(const char *data/const ElsaCAnsiString &amp;str/size_t len)</tspan>
+                <tspan y="258" x="4.4">+ virtual ~ElsaCAnsiString()</tspan>
+                <tspan y="296" x="4.4">+ inline const char *RawStr() const</tspan>
+                <tspan y="315" x="4.4">+ inline char *RawStr()</tspan>
+                <tspan y="334" x="4.4">+ inline size_t Length() const;// 获取字符串长度</tspan>
+                <tspan y="353" x="4.4">+ inline void SetLength(const size_t len);// 设置字符串长度(保留空间)</tspan>
+                <tspan y="372" x="4.4">+ inline int Compare(const char *data/const ElsaCAnsiString &amp;str) const ;// 比较两个字符串是否相等</tspan>
+                <tspan y="410" x="4.4">+ inline bool IsEmpty() const ;// 判断是不是空字符串</tspan>
+                <tspan y="429" x="4.4">// 格式化字符串</tspan>
+                <tspan y="448" x="4.4">+ size_t Format(const char *fmt, ...);</tspan>
+                <tspan y="467" x="4.4">+ size_t FormatArgs(const char *fmt, va_list args);</tspan>
+                <tspan y="505" x="4.4">+ operator const char *() const</tspan>
+                <tspan y="524" x="4.4">        // 注意nullptr字符串则会返回nullptr字符串</tspan>
+                <tspan y="543" x="4.4">+ operator char *()</tspan>
+                <tspan y="562" x="4.4">       </tspan>
+                <tspan y="581" x="4.4">+ void operator=(const char *data/const ElsaCAnsiString &amp;str); // 赋值函数</tspan>
+                <tspan y="600" x="4.4">       </tspan>
+                <tspan y="619" x="4.4">+ void operator+=(const char *data/const ElsaCAnsiString &amp;str) ;// 字符串拼接到自身操作函数</tspan>
+                <tspan y="638" x="4.4">       </tspan>
+                <tspan y="657" x="4.4">+ const ElsaCAnsiString operator+(const char *data/const ElsaCAnsiString &amp;str) ;// 字符串拼接操作函数</tspan>
+                <tspan y="676" x="4.4">+ bool operator==(const char *data/const ElsaCAnsiString &amp;str) const</tspan>
+                <tspan y="695" x="4.4">+ bool operator!=(const char *data/const ElsaCAnsiString &amp;str) const</tspan>
+                <tspan y="714" x="4.4">+ bool operator!() const</tspan>
+            </text>
+        </g>
+        <g id="shape7" transform="matrix(-0.98,0.21,-0.21,-0.98,954.5,1219)">
+            <path stroke="#303030" d="M0,0L694.6,0" fill="none"/>
+            <path stroke-linecap="round" stroke-width="1" stroke="#303030" d="M694.6,-3L700.6,0L694.6,3L694.6,-3" fill="#303030"/>
+            <text xml:space="preserve" class="st3" transform="matrix(-0.98,-0.21,0.21,-0.98,693.1,72.4)">
+                <tspan y="5.5" x="331.8">实例化</tspan>
+            </text>
+        </g>
+        <g id="shape8" transform="translate(1436,1425.37)">
+            <path fill-rule="evenodd" d="M0,0L658,0L658,522L0,522L0,0zM0,63L658,63L0,63zM0,102L658,102L0,102zM0,483L658,483L0,483z" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L658,0L658,522L0,522L0,0zM0,63L658,63L0,63zM0,102L658,102L0,102zM0,483L658,483L0,483z" fill="none"/>
+            <text xml:space="preserve" class="st1">
+                <tspan y="27" x="166">    template &lt;typename TS, typename TC></tspan>
+                <tspan y="48" x="228">  </tspan>
+                <tspan y="48" class="st2" x="238">  class ElsaCCTRefString</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="127" x="4">+ ElsaCCTRefString() : Inherited()</tspan>
+                <tspan y="146" x="4">+ ElsaCCTRefString(const size_t len/const TC *str/const TS &amp;str/const ElsaCCTRefString&lt;TS, TC> &amp;rStr)</tspan>
+                <tspan y="184" x="4">+ operator const TC *() const</tspan>
+                <tspan y="203" x="4">+ operator TC *()</tspan>
+                <tspan y="222" x="4">+ void operator=(const TC *data/const TS &amp;str);// 赋值函数，赋予(const TC*)类型的值，会释放原来指向的</tspan>
+                <tspan y="241" x="4">字符串的引用，指向新的字符串</tspan>
+                <tspan y="260" x="4">+ void operator+=(const TC *data/const TS &amp;str) ;// +=函数会释放原来的指向的字符串，指向新的字符串</tspan>
+                <tspan y="279" x="4">+ bool operator==(const TC *data/const TS &amp;str/const ElsaCCTRefString&lt;TS, TC> &amp;str/) const</tspan>
+                <tspan y="298" x="4">+ bool operator!=(const TC *data/const TS &amp;str/const ElsaCCTRefString&lt;TS, TC> &amp;str) const</tspan>
+                <tspan y="336" x="4">+ const TC *RawStr() const</tspan>
+                <tspan y="355" x="4">+ TC *RawStr()</tspan>
+                <tspan y="374" x="4">+ size_t Length()  </tspan>
+                <tspan y="393" x="4">+ void SetLength(const size_t len)//  重新设置长度，注意不会拷贝原来的数据，而是直接清空数据</tspan>
+                <tspan y="431" x="4">+ int Compare(const TC *data/const TS &amp;str/const ElsaCCTRefString&lt;TS, TC> &amp;str) const</tspan>
+                <tspan y="450" x="4">+ size_t Format(const TC *fmt, ...)</tspan>
+                <tspan y="469" x="4">+ size_t FormatArgs(const TC *fmt, va_list args)</tspan>
+            </text>
+            <text xml:space="preserve" class="st3">
+                <tspan y="502" x="4">一般来说这个类不建议直接使用，而是使用TS=ElsaCAnsiString,TC=char的实例化类。</tspan>
+            </text>
+        </g>
+        <g id="shape9" transform="translate(984.73,1425.37)">
+            <path stroke="#303030" d="M0,0L0,-72.4L782.2,-72.4L782.2,-6" fill="none"/>
+            <path stroke-linecap="round" stroke-width="1" stroke="#303030" d="M785.2,-6L782.2,0L779.2,-6L785.2,-6" fill="#303030"/>
+            <rect y="-81.9" height="19" x="377.3" width="26" fill="#ffffff"/>
+            <text xml:space="preserve" class="st3">
+                <tspan y="-66.9" x="377.3">继承</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

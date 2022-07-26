@@ -1,0 +1,348 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3403 1873" width="3403" xmlns:xlink="http://www.w3.org/1999/xlink" height="1873">
+    <style type="text/css"><![CDATA[
+.st2 {fill:#191919;font-family:微软雅黑;font-size:10pt}
+.st1 {fill:#191919;font-family:微软雅黑;font-size:12pt;font-weight:bold}
+.st3 {fill:#191919;font-family:微软雅黑;font-size:12pt}
+.st4 {font-weight:bold}
+]]></style>
+    <defs/>
+    <g transform="translate(-37,-29.43)">
+        <g id="shape1" transform="translate(1708.26,40)">
+            <path d="M0,0L648,0L648,595L0,595L0,0zM0,42L648,42L0,42zM0,138L648,138L0,138z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#ffbf28" d="M0,0L648,0L648,595L0,595L0,0zM0,42L648,42L0,42zM0,138L648,138L0,138z" fill="none"/>
+            <text class="st1" xml:space="preserve">
+                <tspan y="27" x="253.5">Class ElsaCVector</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="67" x="4"># T *m_pDataPtr;  数据缓冲区</tspan>
+                <tspan y="86" x="4">#  int m_iMaxSize; //  最多的元素个数</tspan>
+                <tspan y="105" x="4">#  int m_iCount;   //  vec中元素的个数</tspan>
+                <tspan y="124" x="4">#  ElsaCBaseAllocator *m_pAlloc; 分配器</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="172.5" x="4">+ inline int Count() const</tspan>
+                <tspan y="191.5" x="4">+ inline int Size() const</tspan>
+                <tspan y="210.5" x="4">+ inline int MaxSize() const</tspan>
+                <tspan y="229.5" x="4">+ virtual void reverse(int count); // 将内存扩充到count，原来的数据不发生改变</tspan>
+                <tspan y="248.5" x="4">+ void Insert(const int index, const T &amp;data) ;// 在index位置插入data数据</tspan>
+                <tspan y="267.5" x="4">+ int Add(const T &amp;data); // 在最后一个位置插入data数据，返回插入后的位置索引</tspan>
+                <tspan y="286.5" x="4">+ int PushBack(const T &amp;data) ; // 在最后一个位置插入data数据，返回插入后的位置索引</tspan>
+                <tspan y="305.5" x="4">+ int Push(const T &amp;data) ; // 在最后一个位置插入data数据，返回插入后的位置索引</tspan>
+                <tspan y="324.5" x="4">+ void AddList(const ElsaCVector&lt;T> &amp;list); // 将Vector的所有数据追加到数据末尾</tspan>
+                <tspan y="343.5" x="4">+ void AddArray(T *data, int length); // 将T*数组追加到数据末尾</tspan>
+                <tspan y="362.5" x="4">+ void Remove(const int index, const int count) ; // 从数组的第index位置移除count个元素</tspan>
+                <tspan y="381.5" x="4">+ void Remove(const int index);// 从数组移除第index所在的元素</tspan>
+                <tspan y="400.5" x="4">+ T Pop(); // 从vec尾部弹出一个元素</tspan>
+                <tspan y="419.5" x="4">+ T PopBack(); // 从vec尾部弹出一个元素</tspan>
+                <tspan y="438.5" x="4">+ void Trunc(const int count);// 截断数组</tspan>
+                <tspan y="457.5" x="4">+ void Clear(); // 逻辑清除</tspan>
+                <tspan y="476.5" x="4">+ void Empty() ; // 物理清除</tspan>
+                <tspan y="495.5" x="4">+ T &amp;Get(const int index) const</tspan>
+                <tspan y="514.5" x="4">+ void Set(const int index, const T &amp;data)</tspan>
+                <tspan y="533.5" x="4">+ int Index(const T &amp;data) const;//  返回data所在的逆序第一个位置</tspan>
+                <tspan y="552.5" x="4">+ int Index(const T &amp;data, const int endIndex) const; //  返回data所在从endIndex逆序的第一个位置索引</tspan>
+                <tspan y="571.5" x="4">+ inline operator T *() const</tspan>
+            </text>
+        </g>
+        <g id="shape2" transform="translate(38,69.43)">
+            <path d="M0,0L494.3,0L494.3,245.6L0,245.6L0,0zM0,106L494.3,106L0,106z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L494.3,0L494.3,245.6L0,245.6L0,0zM0,106L494.3,106L0,106z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="48.5" x="143.6">    template &lt;typename T></tspan>
+                <tspan y="69.5" class="st4" x="145.1">    class ElsaCLinkedNode</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="152.8" x="4.1">+ ElsaCLinkedNode&lt;T> *m_pPrev;</tspan>
+                <tspan y="171.8" x="4.1">+ ElsaCLinkedNode&lt;T> *m_pNext;</tspan>
+                <tspan y="190.8" x="4.1">+ ElsaCBaseLinkedList&lt;T> *m_pSelf; //  指向结点所在链表的指针</tspan>
+                <tspan y="209.8" x="4.1">+ T m_data; //  存放的数据</tspan>
+            </text>
+        </g>
+        <g id="shape3" transform="translate(1001,69.43)">
+            <path d="M0,0L483,0L483,446.4L0,446.4L0,0zM0,63L483,63L0,63zM0,194.2L483,194.2L0,194.2zM0,350.4L483,350.4L0,350.4z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L483,0L483,446.4L0,446.4L0,0zM0,63L483,63L0,63zM0,194.2L483,194.2L0,194.2zM0,350.4L483,350.4L0,350.4z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="138">    template &lt;typename T></tspan>
+                <tspan y="48" x="143.5">   </tspan>
+                <tspan y="48" class="st4" x="158.5"> class ElsaCListIterator</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="105.6" x="4.5">+ ElsaCLinkedNode&lt;T> *m_pEnuming;  //  当前正在遍历的结点</tspan>
+                <tspan y="124.6" x="4.5">+ ElsaCBaseLinkedList&lt;T> *m_pList; //  正在遍历的链表</tspan>
+                <tspan y="143.6" x="4.5">+ ElsaCListIterator&lt;T> *m_pPrev;   //  链表中的前一个迭代器链表</tspan>
+                <tspan y="162.6" x="4.5">+ ElsaCListIterator&lt;T> *m_pNext;   //  链表中的后一个迭代器链表</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="220.8" x="4.5">+ inline void SetList(ElsaCBaseLinkedList&lt;T> &amp;list)</tspan>
+                <tspan y="239.8" x="4.5">+ inline void Remove(ElsaCLinkedNode&lt;T> *pNode, bool boFree = true);// </tspan>
+                <tspan y="258.8" x="4.5">利用迭代器移除一个节点，方便在迭代的过程中移除节点从而避免破坏迭代过程，</tspan>
+                <tspan y="277.8" x="4.5">会返回当前迭代器的前一个结点</tspan>
+                <tspan y="296.8" x="4.5">+ inline ElsaCLinkedNode&lt;T> *First() ;//  返回第一个节点</tspan>
+                <tspan y="315.8" x="4.5">+ inline ElsaCLinkedNode&lt;T> *Next() ;//  返回下一个结点</tspan>
+                <tspan y="334.8" x="4.5">+ inline ElsaCLinkedNode&lt;T> *Current() ;//  返回当前遍历的结点</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="369.4" x="4.5">        链表迭代器，用于遍历某个链表的迭代器。</tspan>
+                <tspan y="388.4" x="4.5">        注意对于同一个数据链表，所有的迭代器也会连接成为一个迭代器链表,因为</tspan>
+                <tspan y="407.4" x="4.5">如果对数据链表删除结点的时候，需要遍历所有迭代器检测是否需要修改迭代器的</tspan>
+                <tspan y="426.4" x="4.5">当前位置。</tspan>
+            </text>
+        </g>
+        <g id="shape4" transform="translate(302,587)">
+            <path d="M0,0L718,0L718,730L0,730L0,0zM0,63L718,63L0,63zM0,178L718,178L0,178z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L718,0L718,730L0,730L0,0zM0,63L718,63L0,63zM0,178L718,178L0,178z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="255.5">    template &lt;typename T></tspan>
+                <tspan y="48" class="st4" x="246.5">    class ElsaCBaseLinkedList</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="88" x="4">- ElsaCLinkedNode&lt;T> *m_pFirstNode;               // 首结点</tspan>
+                <tspan y="107" x="4">- ElsaCLinkedNode&lt;T> *m_pLastNode;                // 尾结点</tspan>
+                <tspan y="126" x="4">- Iterator *m_pIterator;                          // 关于当前链表的迭代器链表</tspan>
+                <tspan y="145" x="4">- int m_iCount;                                   // 结点个数</tspan>
+                <tspan y="164" x="4">- ElsaCObjPool&lt;ElsaCLinkedNode&lt;T>> *m_pAllocator; // 内存分配器</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="203" x="4">+  inline ElsaCLinkedNode&lt;T> *First()</tspan>
+                <tspan y="222" x="4">+  inline ElsaCLinkedNode&lt;T> *Last()</tspan>
+                <tspan y="241" x="4">+  inline int Count() const</tspan>
+                <tspan y="260" x="4">+ virtual ElsaCLinkedNode&lt;T> *AllocNode()</tspan>
+                <tspan y="279" x="4">+ virtual void FreeNode(ElsaCLinkedNode&lt;T> *pNode)</tspan>
+                <tspan y="317" x="4"> // 在node前插入一个结点，如果是nullptr则插入在最前面</tspan>
+                <tspan y="336" x="4">+ ElsaCLinkedNode&lt;T> *LinkBefore(const T &amp;data, ElsaCLinkedNode&lt;T> *node = nullptr)</tspan>
+                <tspan y="355" x="4">+ ElsaCLinkedNode&lt;T> *LinkBefore(ElsaCLinkedNode&lt;T> *pNewNode, ElsaCLinkedNode&lt;T> *node = nullptr)</tspan>
+                <tspan y="393" x="4">// 在node后面插入一个结点，如果是nullptr则插入在最后面</tspan>
+                <tspan y="412" x="4">+ ElsaCLinkedNode&lt;T> *LinkAfter(const T &amp;data, ElsaCLinkedNode&lt;T> *node = nullptr)</tspan>
+                <tspan y="431" x="4">+ ElsaCLinkedNode&lt;T> *LinkAfter(ElsaCLinkedNode&lt;T> *pNewNode, ElsaCLinkedNode&lt;T> *node = nullptr)</tspan>
+                <tspan y="488" x="4">// 插入头结点</tspan>
+                <tspan y="507" x="4">+ ElsaCLinkedNode&lt;T> *LinkFirst(const T &amp;data)</tspan>
+                <tspan y="526" x="4">+ ElsaCLinkedNode&lt;T> *TransferAtFirst(ElsaCLinkedNode&lt;T> *pNewNode)</tspan>
+                <tspan y="564" x="4">// 插入尾结点</tspan>
+                <tspan y="583" x="4">+ ElsaCLinkedNode&lt;T> *LinkLast(const T &amp;data)</tspan>
+                <tspan y="602" x="4">+ ElsaCLinkedNode&lt;T> *TransferAtLast(ElsaCLinkedNode&lt;T> *pNewNode)</tspan>
+                <tspan y="621" x="4">      </tspan>
+                <tspan y="640" x="4">+ ElsaCLinkedNode&lt;T> *Transfer(ElsaCLinkedNode&lt;T> *pNewNode, ElsaCLinkedNode&lt;T> *pNode = nullptr); // </tspan>
+                <tspan y="659" x="4">在pNode后面插入结点pNewNode，pNewNode为nullptr的时候插入到末尾结点，注意pNewNode必须不存在任何结点中</tspan>
+                <tspan y="678" x="4">+ inline void Remove(ElsaCLinkedNode&lt;T> *node, bool bFreeFlag = true) ;// 从链表中删除结点，注意需要遍历迭代</tspan>
+                <tspan y="697" x="4">器，将所有枚举当前结点的迭代器进行删除</tspan>
+                <tspan y="716" x="4">+ virtual void Clear()</tspan>
+            </text>
+        </g>
+        <g id="shape5" transform="translate(286.54,315)">
+            <path stroke="#323232" d="M0,18.7L0,240L376.5,240L376.5,272" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M0,0L-5.4,9.4L0,18.7L5.4,9.4L0,0" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g id="shape6" transform="translate(286.54,315)">
+            <path stroke="#323232" d="M0,18.7L0,32L682.5,32L682.5,-277.6L957.3,-277.6L957.3,-245.6" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M0,0L-5.4,9.4L0,18.7L5.4,9.4L0,0" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g id="shape7" transform="translate(1243.86,515.81)">
+            <path stroke="#303030" d="M0,0L0,102.7L-217.9,102.7" fill="none"/>
+            <path stroke="#303030" stroke-width="1" d="M-217.9,105.7L-223.9,102.7L-217.9,99.7L-217.9,105.7" stroke-linecap="round" fill="#303030"/>
+            <rect y="93.2" width="39" x="-46.4" height="19" fill="#ffffff"/>
+            <text class="st2" xml:space="preserve">
+                <tspan y="108.2" x="-46.4">迭代器</tspan>
+            </text>
+        </g>
+        <g id="shape8" transform="translate(1530.3,796)">
+            <path d="M0,0L472,0L472,279L0,279L0,0zM0,66.8L472,66.8L0,66.8zM0,110.5L472,110.5L0,110.5zM0,230.3L472,230.3L0,230.3z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#ffbf28" d="M0,0L472,0L472,279L0,279L0,0zM0,66.8L472,66.8L0,66.8zM0,110.5L472,110.5L0,110.5zM0,230.3L472,230.3L0,230.3z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="28.9" x="132.5">    template &lt;typename T></tspan>
+                <tspan y="49.9" x="150">    </tspan>
+                <tspan y="49.9" class="st4" x="170">class ElsaCLockList</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="94.1" x="4">-  ElsaCMutex *m_pLock;</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="137.9" x="4">+ inline ElsaCMutex *GetLock();  </tspan>
+                <tspan y="156.9" x="4">+ ElsaCMutex *SetLock(ElsaCMutex *lock) ;// 设置新的锁，返回旧的锁      </tspan>
+                <tspan y="175.9" x="4">+ inline void Lock();// 上锁       </tspan>
+                <tspan y="194.9" x="4">+ inline void Unlock() ;//  解锁</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="249.3" x="4">具有上锁功能的Vector</tspan>
+            </text>
+        </g>
+        <g id="shape9" transform="translate(2034.11,635)">
+            <path stroke="#323232" d="M0,0L0,85L-266.5,85L-266.5,161" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M-260.5,149L-266.5,161L-272.5,149" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+            <rect y="75.5" width="26" x="-139.8" height="19" fill="#ffffff"/>
+            <text class="st2" xml:space="preserve">
+                <tspan y="90.5" x="-139.8">继承</tspan>
+            </text>
+        </g>
+        <g id="shape10" transform="translate(1483.3,1155)">
+            <path d="M0,0L566,0L566,279L0,279L0,0zM0,63L566,63L0,63zM0,102L566,102L0,102zM0,217L566,217L0,217z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#fd8851" d="M0,0L566,0L566,279L0,279L0,0zM0,63L566,63L0,63zM0,102L566,102L0,102zM0,217L566,217L0,217z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="179.5">    template &lt;typename T></tspan>
+                <tspan y="48" class="st4" x="190.5">    class ElsaCQueueList</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="88" x="4">- ElsaCVector&lt;T> m_vecAppendList; //  数据缓冲区</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="127" x="4">+ inline void Append(const T &amp;data)//线程安全添加数据</tspan>
+                <tspan y="146" x="4">+ inline void AppendList(ElsaCVector&lt;T> &amp;list) ;//  线程安全添加一组数据到缓冲区中</tspan>
+                <tspan y="165" x="4">+ inline void AppendArray(T *data, int length) ;//  线程安全添加一组数据到缓冲区中</tspan>
+                <tspan y="184" x="4">+ inline int AppendCount() ;//  返回缓冲区中的数量</tspan>
+                <tspan y="203" x="4">+  inline void Flush(); //  线程安全将数据从缓冲区刷进数据区</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="236" x="4">实现了数据缓冲，以及使用Append会自动保证多线程安全的vec类</tspan>
+            </text>
+        </g>
+        <g id="shape11" transform="translate(1766.3,1079)">
+            <path stroke="#323232" d="M0,0L0,76" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M6,64L0,76L-6,64" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+            <rect y="28.2" width="26" x="-12" height="19" fill="#ffffff"/>
+            <text class="st2" xml:space="preserve">
+                <tspan y="43.2" x="-12">继承</tspan>
+            </text>
+        </g>
+        <g id="shape12" transform="translate(2747.52,38)">
+            <path d="M0,0L691.5,0L691.5,540L0,540L0,0zM0,63L691.5,63L0,63zM0,121L691.5,121L0,121zM0,483L691.5,483L0,483z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#00aeee" d="M0,0L691.5,0L691.5,540L0,540L0,0zM0,63L691.5,63L0,63zM0,121L691.5,121L0,121zM0,483L691.5,483L0,483z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="182.7">    template &lt;typename T, int MAX_NUM></tspan>
+                <tspan y="48" class="st4" x="233.7">    class ElsaCStaticArrayList</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="88" x="4.2"># T m_pDataPtr[MAX_NUM];</tspan>
+                <tspan y="107" x="4.2"># int m_iCount;</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="146" x="4.2">+ inline operator T *() { return m_pDataPtr; }</tspan>
+                <tspan y="165" x="4.2">+ inline operator T *() const { return m_pDataPtr; }</tspan>
+                <tspan y="184" x="4.2">+ int Size() const { return m_iCount; }</tspan>
+                <tspan y="203" x="4.2">+ int Count() const { return m_iCount; }</tspan>
+                <tspan y="222" x="4.2">+ int MaxSize() const { return MAX_NUM; }</tspan>
+                <tspan y="241" x="4.2">+ int Add(const T &amp;data)  ;// 在数组末尾追加一个数字，并返回所在的索引</tspan>
+                <tspan y="260" x="4.2">+ int PushBack(const T &amp;data) ; // 在数组末尾追加一个数字，并返回所在的索引</tspan>
+                <tspan y="279" x="4.2">+ void Insert(const T &amp;data, const int idx)  ;// 在idx处插入数据data</tspan>
+                <tspan y="298" x="4.2">+ inline const T &amp;Get(const int index) const</tspan>
+                <tspan y="317" x="4.2">+ inline void Set(const int index, const T &amp;data)</tspan>
+                <tspan y="336" x="4.2">+ void Remove(const int index, const int num)</tspan>
+                <tspan y="355" x="4.2">+ void Remove(const int index)</tspan>
+                <tspan y="374" x="4.2">+ inline void Clear()</tspan>
+                <tspan y="393" x="4.2">+ inline void Trunc(const int num)</tspan>
+                <tspan y="412" x="4.2">+ inline void AddArray(const T *data, int length)</tspan>
+                <tspan y="431" x="4.2">+ inline void AddList(const ElsaCVector&lt;T> &amp;list)</tspan>
+                <tspan y="450" x="4.2">+ int Index(const T &amp;data) const ;// 从后往前搜索数组，返回逆序第一个找到data的下标</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="502" x="4.2">静态vector数组，数组大小固定</tspan>
+            </text>
+        </g>
+        <g id="shape13" transform="translate(2356.26,130)">
+            <path stroke="#323232" d="M18.7,0L391.3,0" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M0,0L9.4,5.4L18.7,0L9.4,-5.4L0,0" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g id="shape14" transform="translate(2099.96,796)">
+            <path d="M0,0L482.3,0L482.3,256L0,256L0,0zM0,63L482.3,63L0,63zM0,102L482.3,102L0,102zM0,217L482.3,217L0,217z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#ffbf28" d="M0,0L482.3,0L482.3,256L0,256L0,0zM0,63L482.3,63L0,63zM0,102L482.3,102L0,102zM0,217L482.3,217L0,217z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="36.1">    template &lt;typename T, int ONE_TIME_NUM = 16></tspan>
+                <tspan y="48" class="st4" x="148.6">    class ElsaCBinaryList</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="127" x="4.1">+ int AddItem(const T &amp;item)</tspan>
+                <tspan y="146" x="4.1">+ void RemoveItem(const T &amp;item, bool bDelRepeat = false); // 移除元素，如</tspan>
+                <tspan y="165" x="4.1">果不指定重复则移除相同元素的第一个元素，否则移除所有相同的元素</tspan>
+                <tspan y="184" x="4.1">+ int Find(const T&amp; item)  ;// 二分查找item的位置，如果有相同的位置，则找到</tspan>
+                <tspan y="203" x="4.1">第一个位置</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="236" x="4.1">封装了二分查找的vector</tspan>
+            </text>
+        </g>
+        <g id="shape15" transform="translate(2034.11,635)">
+            <path stroke="#323232" d="M0,0L0,85L308.4,85L308.4,161" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M314.4,149L308.4,161L302.4,149" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+            <rect y="75.5" width="26" x="128.8" height="19" fill="#ffffff"/>
+            <text class="st2" xml:space="preserve">
+                <tspan y="90.5" x="128.8">继承</tspan>
+            </text>
+        </g>
+        <g id="shape16" transform="translate(2791.7,796)">
+            <path d="M0,0L603.1,0L603.1,275L0,275L0,0zM0,63L603.1,63L0,63zM0,102L603.1,102L0,102zM0,236L603.1,236L0,236z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#00aeee" d="M0,0L603.1,0L603.1,275L0,275L0,0zM0,63L603.1,63L0,63zM0,102L603.1,102L0,102zM0,236L603.1,236L0,236z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="96.6">    template &lt;typename T, int ONE_TIME_NUM = 16></tspan>
+                <tspan y="48" x="190.6">    </tspan>
+                <tspan y="48" class="st4" x="210.6">class JieCStaticBinaryList</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="136.5" x="4.1">       </tspan>
+                <tspan y="155.5" x="4.1">+ int AddItem(const T &amp;item) ;// 基于二分插入数据，如果有相同的数据则默认插入到最后一个位置</tspan>
+                <tspan y="174.5" x="4.1">+ int Find(const T &amp;item); // 二分查找，如果有重复元素则查到第一个元素所在的位置</tspan>
+                <tspan y="193.5" x="4.1">+ void RemoveItem(const T &amp;item, bool bDelRepeat = false) ;// 二分查找item的位置，如果有相同</tspan>
+                <tspan y="212.5" x="4.1">的位置，则找到第一个位置</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="255" x="4.1">封装了二分查找的静态数组</tspan>
+            </text>
+        </g>
+        <g id="shape17" transform="translate(3095.23,578)">
+            <path stroke="#323232" d="M0,0L0,109L-0.3,109L-0.3,218" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M5.7,206L-0.3,218L-6.3,206" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+            <rect y="95.5" width="26" x="-12" height="19" fill="#ffffff"/>
+            <text class="st2" xml:space="preserve">
+                <tspan y="110.5" x="-12">继承</tspan>
+            </text>
+        </g>
+        <g id="shape18" transform="translate(567,1474)">
+            <path d="M0,0L594.2,0L594.2,427L0,427L0,0zM0,63L594.2,63L0,63zM0,197L594.2,197L0,197zM0,369L594.2,369L0,369z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#114129" d="M0,0L594.2,0L594.2,427L0,427L0,0zM0,63L594.2,63L0,63zM0,197L594.2,197L0,197zM0,369L594.2,369L0,369z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="193.6">    template &lt;typename T></tspan>
+                <tspan y="48" x="190.6">   </tspan>
+                <tspan y="48" class="st4" x="205.6"> class ElsaCStrHashTable</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="88" x="4.1"># size_t m_nInitSize;         //  初始化桶的最小数量</tspan>
+                <tspan y="107" x="4.1"># size_t m_nLen;              //  所有可以使用的桶数量</tspan>
+                <tspan y="126" x="4.1"># size_t m_nFree;             //  空桶数量</tspan>
+                <tspan y="145" x="4.1"># ElsaCHashNode&lt;T> *m_pTable; //  哈希表</tspan>
+                <tspan y="183" x="4.1">+ static const size_t MiniSize = 16;</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="222" x="4.1">+ void Clear() ;// 物理清空哈希表，会调用哈希表中值对象的析构函数，同时删除哈希表的内存空间</tspan>
+                <tspan y="241" x="4.1">+ inline size_t Count() const ;// 返回当前已经使用的桶数量</tspan>
+                <tspan y="260" x="4.1">+ int GetIndex(const char *sKey) const;//  获取字符串sKey对应的索引值</tspan>
+                <tspan y="279" x="4.1">+ inline T *Get(const char *sKey)</tspan>
+                <tspan y="298" x="4.1">+ inline const T *Get(const char *sKey) const</tspan>
+                <tspan y="317" x="4.1">+ inline T *Put(const char *sKey)</tspan>
+                <tspan y="336" x="4.1">+ inline int Update(const char *sKey, const T &amp;value)</tspan>
+                <tspan y="355" x="4.1">+ inline int Remove(const char *sKey)</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="394" x="4.1">基于暴雪哈希算法构建的字符串哈希表。 基本思想是开放定址法，使用三个哈希值验证一个字符串，</tspan>
+                <tspan y="413" x="4.1">一个用于定位，两个用于唯一性确定</tspan>
+            </text>
+        </g>
+        <g id="shape19" transform="translate(76,1474)">
+            <path d="M0,0L258,0L258,208L0,208L0,0zM0,63L258,63L0,63zM0,159L258,159L0,159z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#323232" d="M0,0L258,0L258,208L0,208L0,0zM0,63L258,63L0,63zM0,159L258,159L0,159z" fill="none"/>
+            <text class="st3" xml:space="preserve">
+                <tspan y="27" x="30">template &lt;typename TA></tspan>
+                <tspan y="48" class="st4" x="44">class ElsaCHashNode</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="88" x="4">+ unsigned int m_uiHash1;</tspan>
+                <tspan y="107" x="4">+ unsigned int m_uiHash2;</tspan>
+                <tspan y="126" x="4">+ unsigned int m_uiHash3;</tspan>
+                <tspan y="145" x="4">+ TA m_value;</tspan>
+            </text>
+            <text class="st2" xml:space="preserve">
+                <tspan y="189" x="4">哈希节点，一个字符串会保存三个哈希值</tspan>
+            </text>
+        </g>
+        <g id="shape20" transform="translate(334,1505.5)">
+            <path stroke="#323232" d="M18.7,0L120,0L120,98.5L233,98.5" fill="none"/>
+            <path stroke="#323232" stroke-width="1" d="M0,0L9.4,5.4L18.7,0L9.4,-5.4L0,0" stroke-linecap="round" fill="#323232"/>
+        </g>
+    </g>
+</svg>

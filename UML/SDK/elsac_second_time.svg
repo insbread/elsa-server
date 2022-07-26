@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="626" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 626 376.78" height="377">
+    <style type="text/css"><![CDATA[
+.st2 {fill:#191919;font-family:微软雅黑;font-size:10pt}
+.st1 {fill:#191919;font-family:微软雅黑;font-size:15pt}
+]]></style>
+    <defs/>
+    <g id="shape1" transform="translate(1,1)">
+        <path fill-rule="evenodd" d="M0,0L624,0L624,374.8L0,374.8L0,0zM0,93.5L624,93.5L0,93.5zM0,178.1L624,178.1L0,178.1z" fill="#ffffff"/>
+        <path stroke="#323232" d="M0,0L624,0L624,374.8L0,374.8L0,0zM0,93.5L624,93.5L0,93.5zM0,178.1L624,178.1L0,178.1z" fill="none"/>
+        <text class="st1" xml:space="preserve">
+            <tspan x="229" y="54.2">ElsaCSecondTime</tspan>
+        </text>
+        <text class="st2" xml:space="preserve">
+            <tspan x="4" y="141.3">+   Attribute m_uiTv: unsigned int； 从BaseYear或者YearBase定义开始当现在所经过的秒数</tspan>
+        </text>
+        <text class="st2" xml:space="preserve">
+            <tspan x="4" y="206">+ Operation Encode(): ElsaCSecondTime &amp;; 对各种时间结构体进行编码，转换为所经过的秒数m_uiTv</tspan>
+            <tspan x="4" y="225">+ Operation Decode(); 对m_uiTv转换得到年、月、日、小时、分钟并返回</tspan>
+            <tspan x="4" y="244">+ Operation Now(): unsigned int; 返回当前时间的秒数</tspan>
+            <tspan x="4" y="263">+ Operation Today(): unsigned int; 返回今天凌晨的秒数</tspan>
+            <tspan x="4" y="282">+ Operation Yesterday(): unsigned int; 返回昨天凌晨的秒数</tspan>
+            <tspan x="4" y="301">+ Operation Tomorrow(): unsigned int; 返回明天凌晨的秒数</tspan>
+            <tspan x="4" y="339">+ Operation operator int|=|>|>=|&lt;|&lt;=|!=|==|+|+=|-|-=()各种重载操作</tspan>
+        </text>
+    </g>
+</svg>

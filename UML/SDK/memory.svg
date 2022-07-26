@@ -1,0 +1,561 @@
+<svg viewBox="0 0 2608 2551" width="2608" xmlns:xlink="http://www.w3.org/1999/xlink" height="2551" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css"><![CDATA[
+.st5 {fill:#00b0f0;font-family:Microsoft YaHei UI;font-size:9pt;font-weight:bold}
+.st8 {fill:#00b0f0;font-weight:bold}
+.st1 {fill:#191919;font-family:微软雅黑;font-size:10pt}
+.st3 {fill:#191919;font-family:微软雅黑;font-size:11pt;font-weight:bold}
+.st10 {fill:#191919;font-family:微软雅黑;font-size:12pt;font-weight:bold}
+.st11 {fill:#191919;font-family:微软雅黑;font-size:14pt}
+.st6 {fill:#39aa71;font-weight:bold}
+.st9 {fill:#ffffff;font-family:微软雅黑;font-size:10pt}
+.st13 {fill:#ffffff;font-family:微软雅黑;font-size:9pt}
+.st4 {font-family:Microsoft YaHei UI;font-size:9pt}
+.st2 {font-size:11pt;font-weight:bold}
+.st12 {font-size:12pt;font-weight:bold}
+.st7 {font-weight:bold}
+]]></style>
+    <defs/>
+    <g transform="translate(-1103.64,-75)">
+        <g transform="translate(1198.52,76)" id="shape1">
+            <path d="M0,0L529,0L529,326L0,326L0,0zM0,58L529,58L0,58zM0,154L529,154L0,154z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#ffbf28" d="M0,0L529,0L529,326L0,326L0,0zM0,58L529,58L0,58zM0,154L529,154L0,154z" fill="none"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="106" y="25">template &lt;typename T, int ONE_TIME_NUM = 16></tspan>
+                <tspan x="163.5" y="44" class="st2">class ElsaCMemoryItemList</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="92.5">-   m_dataPtr: T;  内存空间起始地址</tspan>
+                <tspan x="4" y="111.5">-   m_iMaxSize: int; 内存空间真实大小(以T为单位)</tspan>
+                <tspan x="4" y="130.5">-   m_iCount: int; 已分配内存空间大小(以T为单位)</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="179">+ virtual  Reverse(int count)；将内存拓展为count</tspan>
+                <tspan x="4" y="198">+ Add(const T &amp;data)： int; 将data数据写入缓冲区中</tspan>
+                <tspan x="4" y="217">+ Remove(const int index, const int count); 移除缓冲区中[idx ~ idx + count)的数据</tspan>
+                <tspan x="4" y="236">+ Remove(const int index);  移除缓冲区下标是index的数据</tspan>
+                <tspan x="4" y="255">+ Clear(); 逻辑清控缓冲区</tspan>
+                <tspan x="4" y="274">+ virtual Empty(); 物理清空缓冲区</tspan>
+                <tspan x="4" y="312">+ operator T*()</tspan>
+            </text>
+        </g>
+        <g transform="translate(1953.52,471.17)" id="shape2">
+            <path d="M0,0L467,0L467,353.8L0,353.8L0,0zM0,47.3L467,47.3L0,47.3zM0,151.5L467,151.5L0,151.5zM0,264.5L467,264.5L0,264.5z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L467,0L467,353.8L0,353.8L0,0zM0,47.3L467,47.3L0,47.3zM0,151.5L467,151.5L0,151.5zM0,264.5L467,264.5L0,264.5z" fill="none"/>
+            <text xml:space="preserve" class="st3">
+                <tspan x="112.5" y="29.1">class ElsaCAllocatorCounterItem</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="76.4"># m_allocTotal: size_t;	分配的内存总数</tspan>
+                <tspan x="4" y="95.4"># m_freeCount: size_t;	空闲的内存数量</tspan>
+                <tspan x="4" y="114.4"># m_usedCount: size_t;	正在使用的内存数量</tspan>
+                <tspan x="4" y="133.4"># m_cpName: char[MAX_NAME_LENGTH];	统计器的名字</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="174.5" class="st4">+ </tspan>
+                <tspan x="17" class="st5">ElsaCAllocatorCounterItem(const char*); 调用Register</tspan>
+                <tspan x="4" y="193.5">+ </tspan>
+                <tspan x="18" class="st6">~ElsaCAllocatorCounterItem(); 调用Unregister</tspan>
+                <tspan x="4" y="212.5">+ GetName(): const char*;</tspan>
+                <tspan x="4" y="231.5">+ GetAllocCount(): size_t;</tspan>
+                <tspan x="4" y="250.5">+ virtual Log(char* buf, int num);	输出内存使用情况</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="314.6">friend class </tspan>
+                <tspan x="77" class="st7">ElsaCMemoryCounter</tspan>
+            </text>
+        </g>
+        <g transform="translate(1198.52,491)" id="shape3">
+            <path d="M0,0L510,0L510,245.7L0,245.7L0,0zM0,39L510,39L0,39zM0,130.7L510,130.7L0,130.7z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#00aeee" d="M0,0L510,0L510,245.7L0,245.7L0,0zM0,39L510,39L0,39zM0,130.7L510,130.7L0,130.7z" fill="none"/>
+            <text xml:space="preserve" class="st3">
+                <tspan x="152.5" y="25">Class ElsaCMemoryCounter</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="90.3">+m_allocatorList: ElsaCMemoryItemList&lt;ElsaCAllocatorCounterItem *, 2048></tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="155.7">+ </tspan>
+                <tspan x="18" class="st8">Regist(ElsaCAllocatorCounterItem*)</tspan>
+                <tspan x="254">; 添加一个ElsaCAllocatorCounterItem</tspan>
+                <tspan x="4" y="174.7">+ </tspan>
+                <tspan x="18" class="st6">Unregist(ElsaCAllocatorCounterItem*);</tspan>
+                <tspan x="273"> 移除一个ElsaCAllocatorCounterItem</tspan>
+                <tspan x="4" y="193.7">+ LogToFile(); 统计当前的内存使用情况</tspan>
+                <tspan x="4" y="231.7">+ GetSingleton() : ElsaCMemoryCounter&amp;; 单例类</tspan>
+            </text>
+        </g>
+        <g transform="translate(1198.52,105)" id="shape4">
+            <path stroke="#323232" d="M-18.7,0L-48,0L-48,470.8L0,470.8" fill="none"/>
+            <path stroke="#323232" d="M0,0L-9.4,-5.4L-18.7,0L-9.4,5.4L0,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(1708.52,575.83)" id="shape5">
+            <path stroke="#323232" d="M0,0L123,0L123,-81L245,-81" stroke-dasharray="6,4" fill="none"/>
+            <path stroke="#323232" d="M233,-87L245,-81L233,-75" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="39" height="19" x="104.5" y="-49.6" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="104.5" y="-34.6">观察者</tspan>
+            </text>
+        </g>
+        <g transform="translate(1953.52,679.17)" id="shape6">
+            <path stroke="#323232" d="M0,0L-207,0C-207,-3.3,-209.7,-6,-213,-6C-216.3,-6,-219,-3.3,-219,0L-245,0" stroke-dasharray="6,4" fill="none"/>
+            <path stroke="#323232" d="M-233,6L-245,0L-233,-6" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="52" height="19" x="-143.6" y="-9.5" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="-143.6" y="5.5">观察目标</tspan>
+            </text>
+        </g>
+        <g transform="translate(1689.52,926)" id="shape7">
+            <path d="M0,0L491,0L491,321L0,321L0,0zM0,56.4L491,56.4L0,56.4zM0,99.9L491,99.9L0,99.9zM0,210.5L491,210.5L0,210.5z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L491,0L491,321L0,321L0,0zM0,56.4L491,56.4L0,56.4zM0,99.9L491,99.9L0,99.9zM0,210.5L491,210.5L0,210.5z" fill="none"/>
+            <text xml:space="preserve" class="st3">
+                <tspan x="154" y="33.7">Class ElsaCBaseAllocator</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="132.2">+ virtual _AllocBuffer(size_t , const char *, int): void*; 分配格式：[size_t 内存大</tspan>
+                <tspan x="4" y="151.2">小 | 真实内存数据]</tspan>
+                <tspan x="4" y="170.2">+ virtual _ReAllocBuffer(void *, size_t , const char *, int); 从新分配空间</tspan>
+                <tspan x="4" y="189.2">+ virtual _FreeBuffer(void *, const char *, int); 删除空间</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="261.7">分配格式：[size_t 记录内存大小 | 真实内存数据]；多个内存块之间没有任何关系，</tspan>
+                <tspan x="4" y="280.7">逻辑和物理上都不一定会相邻</tspan>
+            </text>
+        </g>
+        <g transform="translate(2188.35,824.92)" id="shape8">
+            <path stroke="#323232" d="M0,0L0,59.1L-251.9,59.1L-251.9,101.1" fill="none"/>
+            <path stroke="#323232" d="M-245.9,89.1L-251.9,101.1L-257.9,89.1" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="26" height="19" x="-119.8" y="49.6" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="-119.8" y="64.6">继承</tspan>
+            </text>
+        </g>
+        <g transform="translate(2316.5,878)">
+            <path stroke="#000000" d="M11,0L572,0C578.1,0,583,4.9,583,11L583,481C583,487.1,578.1,492,572,492L11,492C4.9,492,0,487.1,0,481L0,11C0,4.9,4.9,0,11,0z" stroke-dasharray="2,5" fill="none" id="shape9"/>
+        </g>
+        <g transform="translate(2356.5,916)" id="shape11">
+            <path d="M0,0L503,0L503,429.4L0,429.4L0,0zM0,72.2L503,72.2L0,72.2zM0,136.6L503,136.6L0,136.6zM0,283L503,283L0,283z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L503,0L503,429.4L0,429.4L0,0zM0,72.2L503,72.2L0,72.2zM0,136.6L503,136.6L0,136.6zM0,283L503,283L0,283z" fill="none"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="78" y="32.1">template &lt;typename T, int ONE_TIME_COUNT = 1024></tspan>
+                <tspan x="142.5" y="51.1" class="st2">Class ElsaCMemoryContainer</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="109.9">- m_pDataBlock: ElsaSDataBlock; 内存块链表尾节点</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="177.3">+ _AllocBuffer(size_t, const char *, int): T；分配count * sizeof(T)字节数据</tspan>
+                <tspan x="4" y="196.3">+ _FreeBuffer(); 删除所有内存数据</tspan>
+                <tspan x="4" y="215.3">+ BlockCount(): 获取分配的内存块数</tspan>
+                <tspan x="4" y="234.3">+ EnumBlockDesc(void *enum_key, ElsaSDataBlockDesc &amp;desc): void*; 枚举内存</tspan>
+                <tspan x="4" y="253.3">信息，用于输出显示</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="302">内存布局：每次分配内存会先遍历链表从当前结点的剩余空间中先分配，如果没有符合</tspan>
+                <tspan x="4" y="321">要求的内存，那么申请新的空间。这个内存分配器不具备回收的功能，分配出去无法中</tspan>
+                <tspan x="4" y="340">途回收，只能最后一起回收，因此分配出去的结点没有任何记录可以找到空闲的任何信</tspan>
+                <tspan x="4" y="359">息</tspan>
+            </text>
+        </g>
+        <g transform="translate(2364.5,1294)" id="shape12">
+            <path stroke="#fd8851" d="M154,38L154,0L0,0L0,38L154,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="7" y="24.5">DataBlock| T  | T | ... | T</tspan>
+            </text>
+        </g>
+        <g transform="translate(2531,1294)" id="shape13">
+            <path stroke="#fd8851" d="M154,38L154,0L0,0L0,38L154,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="7" y="24.5">DataBlock| T  | T | ... | T</tspan>
+            </text>
+        </g>
+        <g transform="translate(2697.5,1294)" id="shape14">
+            <path stroke="#fd8851" d="M154,38L154,0L0,0L0,38L154,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="7" y="24.5">DataBlock| T  | T | ... | T</tspan>
+            </text>
+        </g>
+        <g transform="translate(2697.5,1313)" id="shape15">
+            <path stroke="#323232" d="M0,0L-8.1,0" fill="none"/>
+            <path stroke="#323232" d="M-12.5,0L-7.3,3C-7.8,2.1,-8.1,1.1,-8.1,0C-8.1,-1.1,-7.8,-2.1,-7.3,-3L-12.5,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2531,1313)" id="shape16">
+            <path stroke="#323232" d="M0,0L-8.1,0" fill="none"/>
+            <path stroke="#323232" d="M-12.5,0L-7.3,3C-7.8,2.1,-8.1,1.1,-8.1,0C-8.1,-1.1,-7.8,-2.1,-7.3,-3L-12.5,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2188.35,824.92)" id="shape17">
+            <path stroke="#323232" d="M0,0L0,59.1L421.1,59.1L421.1,91.1" fill="none"/>
+            <path stroke="#323232" d="M427.1,79.1L421.1,91.1L415.1,79.1" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="26" height="19" x="122.8" y="49.6" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="122.8" y="64.6">继承</tspan>
+            </text>
+        </g>
+        <g transform="translate(2188.35,855.27)" id="shape18">
+            <path stroke="#323232" d="M0,0L-447.8,0L-447.8,-176.1L-479.8,-176.1" stroke-dasharray="6,4" fill="none"/>
+            <path stroke="#323232" d="M-467.8,-170.1L-479.8,-176.1L-467.8,-182.1" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="52" height="19" x="-342.5" y="-9.5" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="-342.5" y="5.5">观察目标</tspan>
+            </text>
+        </g>
+        <g transform="translate(1104.64,1272)">
+            <path stroke="#000000" d="M11,0L666,0C672.1,0,677,4.9,677,11L677,626C677,632.1,672.1,637,666,637L11,637C4.9,637,0,632.1,0,626L0,11C0,4.9,4.9,0,11,0z" stroke-dasharray="2,5" fill="none" id="shape19"/>
+        </g>
+        <g transform="translate(1144.64,1312)" id="shape21">
+            <path d="M0,0L597,0L597,575.2L0,575.2L0,0zM0,74.6L597,74.6L0,74.6zM0,255.1L597,255.1L0,255.1zM0,408.1L597,408.1L0,408.1z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#fd8851" d="M0,0L597,0L597,575.2L0,575.2L0,0zM0,74.6L597,74.6L0,74.6zM0,255.1L597,255.1L0,255.1zM0,408.1L597,408.1L0,408.1z" fill="none"/>
+            <text xml:space="preserve" class="st10">
+                <tspan x="195.5" y="43.3">Class ElsaCAlignAllocator</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="103.9">- m_iMaxSize:int;  最大分配的内存容量</tspan>
+                <tspan x="4" y="122.9">- m_iAlign:int  ;每一次分配的内存容量</tspan>
+                <tspan x="4" y="141.9">- m_pHeader: ElsaSHeader *;  内存等级链表结点</tspan>
+                <tspan x="4" y="160.9">- m_iHdrCnt: int;  结点个数</tspan>
+                <tspan x="4" y="179.9">- m_iRest: int;  GC功能每次回收保留的结点个数</tspan>
+                <tspan x="4" y="217.9">- m_bMultThread: bool;  是否使用锁</tspan>
+                <tspan x="4" y="236.9">- m_bufferLock: ElsaCMutex;  多线程锁</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="280.1">+ virtual _AllocBuffer(size_t , const char *, int): void*; 分配格式：[size_t 内存大小 | 真实内存数据]</tspan>
+                <tspan x="4" y="299.1">+ virtual _ReAllocBuffer(void *, size_t , const char *, int); 从新分配空间</tspan>
+                <tspan x="4" y="318.1">+ virtual _FreeBuffer(void *, const char *, int); 删除空间</tspan>
+                <tspan x="4" y="356.1">+ void GC();</tspan>
+                <tspan x="4" y="375.1">+ void SetMultiThread(bool flag)；</tspan>
+                <tspan x="4" y="394.1">+ void SetGCRest(int rest)</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="427.1">内存分配：分配器以简单分离算法 和 对齐 为原则指导设计的内存分配器。对齐必须是8的倍数，因为</tspan>
+                <tspan x="4" y="446.1">64位操作系统默认是8字节对齐的，8字节对齐能满足各种计算架构和系统。适合小内存分配的空间</tspan>
+            </text>
+        </g>
+        <g transform="translate(1936.42,1247)" id="shape22">
+            <path stroke="#323232" d="M0,0L0,19L-491.6,19L-491.6,65" fill="none"/>
+            <path stroke="#323232" d="M-485.6,53L-491.6,65L-497.6,53" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="26" height="19" x="-331.6" y="9.5" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="-331.6" y="24.5">继承</tspan>
+            </text>
+        </g>
+        <g transform="translate(1315.77,1767)" id="shape23">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="20.8" y="24.5">FreeNode | i * align 字节</tspan>
+            </text>
+        </g>
+        <g transform="translate(1528.02,1767)" id="shape24">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="20.8" y="24.5">FreeNode | i * align 字节</tspan>
+            </text>
+        </g>
+        <g transform="translate(1505.27,1786)" id="shape25">
+            <path stroke="#fd8851" d="M0,0L18.4,0" fill="none"/>
+            <path stroke="#fd8851" d="M22.8,0L17.6,-3C18.1,-2.1,18.4,-1.1,18.4,0C18.4,1.1,18.1,2.1,17.6,3L22.8,0" stroke-width="1" stroke-linecap="round" fill="#fd8851"/>
+        </g>
+        <g transform="translate(1168.77,1767)" id="shape26">
+            <path stroke="#999999" d="M121,38L121,0L0,0L0,38L121,38z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="17.5" y="24.5">ElsaSHeader[i]</tspan>
+            </text>
+        </g>
+        <g transform="translate(1289.77,1786)" id="shape27">
+            <path stroke="#323232" d="M0,0L21.6,0" fill="none"/>
+            <path stroke="#323232" d="M26,0L20.8,-3C21.3,-2.1,21.6,-1.1,21.6,0C21.6,1.1,21.3,2.1,20.8,3L26,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(1315.77,1824)" id="shape28">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="7.8" y="24.5">FreeNode | (i+1) * align 字节</tspan>
+            </text>
+        </g>
+        <g transform="translate(1528.02,1824)" id="shape29">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="7.8" y="24.5">FreeNode | (i+1) * align 字节</tspan>
+            </text>
+        </g>
+        <g transform="translate(1505.27,1843)" id="shape30">
+            <path stroke="#fd8851" d="M0,0L18.4,0" fill="none"/>
+            <path stroke="#fd8851" d="M22.8,0L17.6,-3C18.1,-2.1,18.4,-1.1,18.4,0C18.4,1.1,18.1,2.1,17.6,3L22.8,0" stroke-width="1" stroke-linecap="round" fill="#fd8851"/>
+        </g>
+        <g transform="translate(1168.77,1824)" id="shape31">
+            <path stroke="#999999" d="M121,38L121,0L0,0L0,38L121,38z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="4.5" y="24.5">ElsaSHeader[i + 1]</tspan>
+            </text>
+        </g>
+        <g transform="translate(1289.77,1843)" id="shape32">
+            <path stroke="#323232" d="M0,0L21.6,0" fill="none"/>
+            <path stroke="#323232" d="M26,0L20.8,-3C21.3,-2.1,21.6,-1.1,21.6,0C21.6,1.1,21.3,2.1,20.8,3L26,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(1831,1343.5)">
+            <path stroke="#6d6d6d" d="M11,0L809.2,0C815.3,0,820.2,4.9,820.2,11L820.2,1270C820.2,1276.1,815.3,1281,809.2,1281L11,1281C4.9,1281,0,1276.1,0,1270L0,11C0,4.9,4.9,0,11,0z" stroke-dasharray="2,5" fill="none" id="shape33"/>
+        </g>
+        <g transform="translate(1871,1383.5)" id="shape35">
+            <path d="M0,0L740.2,0L740.2,1201L0,1201L0,0zM0,103.4L740.2,103.4L0,103.4zM0,513.1L740.2,513.1L0,513.1zM0,742.4L740.2,742.4L0,742.4zM0,971.7L740.2,971.7L0,971.7z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#fd8851" d="M0,0L740.2,0L740.2,1201L0,1201L0,0zM0,103.4L740.2,103.4L0,103.4zM0,513.1L740.2,513.1L0,513.1zM0,742.4L740.2,742.4L0,742.4zM0,971.7L740.2,971.7L0,971.7z" fill="none"/>
+            <text xml:space="preserve" class="st10">
+                <tspan x="264.1" y="57.7">Class ElsaCBufferAllocator</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4.1" y="142.7">- m_bufferLock: ElsaCMutex; 内存块申请的锁</tspan>
+                <tspan x="4.1" y="161.7">- m_pLastSmallBuffer：PBUFFER</tspan>
+                <tspan x="4.1" y="180.7">- m_pLastSmallBuffer: PBUFFER;  //指向最后一个空闲的小型内存块的指针</tspan>
+                <tspan x="4.1" y="199.7">- m_pLastMiddleBuffer: PBUFFER; //指向最后一个空闲的中型内存块的指针</tspan>
+                <tspan x="4.1" y="218.7">- m_pLastLargeBuffer: PBUFFER;  //指向最后一个空闲的大型内存块的指针</tspan>
+                <tspan x="4.1" y="237.7">- m_pLastSuperBuffer: PBUFFER;  //指向最后一个空闲的超级内存块的指针</tspan>
+                <tspan x="4.1" y="256.7">- m_pLastAllocedBuffer: PBUFFER;//指向最后一个被申请的内存块，这个链表是通过next_ptr这个结点进行链接在一起，采用</tspan>
+                <tspan x="4.1" y="275.7">的是尾结点管理方法</tspan>
+                <tspan x="4.1" y="313.7">- size_t m_szAllocedSmallSize;  //已被申请的小型内存块大小</tspan>
+                <tspan x="4.1" y="332.7">-size_t m_szAllocedMiddleSize; //已被申请的中型内存块大小</tspan>
+                <tspan x="4.1" y="351.7">- size_t m_szAllocedLargeSize;  //已被申请的大型内存块大小</tspan>
+                <tspan x="4.1" y="370.7">- size_t m_szAllocedSuperSize;  //已被申请的超级内存块大小</tspan>
+                <tspan x="4.1" y="389.7">- size_t m_szFreedSmallSize;    //已被释放的小型内存块大小</tspan>
+                <tspan x="4.1" y="408.7">- size_t m_szFreedMiddelSize;   //已被释放的中型内存块大小</tspan>
+                <tspan x="4.1" y="427.7">- size_t m_szFreedLargeSize;    //已被释放的大型内存块大小</tspan>
+                <tspan x="4.1" y="446.7">- size_t m_szFreedSuperSize;    //已被释放的超级内存块大小</tspan>
+                <tspan x="4.1" y="484.7">- bool m_bMultThread; // 是否用于多线程中，是的话对于某些操作需要上锁</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4.1" y="566.7">+void *_AllocBuffer(size_t size, const char *fn, int line);</tspan>
+                <tspan x="4.1" y="585.7">+void *_ReAllocBuffer(void *ptr, size_t new_size, const char *fn, int line);</tspan>
+                <tspan x="4.1" y="604.7">+void _FreeBuffer(void *ptr, const char *fn, int line);</tspan>
+                <tspan x="4.1" y="642.7">+void GetMemoryInfo(ElsaCBufferAllocator::ALLOCATOR_MEMORY_INFO *pMemoryInfo);</tspan>
+                <tspan x="4.1" y="661.7">+void CheckFreeBuffers();</tspan>
+                <tspan x="4.1" y="680.7">+void SetMultiThread(bool flag);</tspan>
+                <tspan x="4.1" y="699.7">+void GC();</tspan>
+            </text>
+            <text xml:space="preserve" class="st11">
+                <tspan x="4.1" y="995.7">    简单分离内存分配器。</tspan>
+                <tspan x="4.1" y="1020.7">    分配器以简单分离算法为指导进行设计。共有四个大小类，64,256,1024,以及</tspan>
+                <tspan x="4.1" y="1045.7">>1024。</tspan>
+                <tspan x="4.1" y="1070.7">    采用空闲链表进行管理，结点的嵌入方式是外部嵌入。链表管理方法是尾插入和尾分</tspan>
+                <tspan x="4.1" y="1095.7">配。</tspan>
+                <tspan x="4.1" y="1120.7">    该内存分配器采用定期释放内存空间的功能，每个节点进入空闲队列时都有一个过期</tspan>
+                <tspan x="4.1" y="1145.7">时间</tspan>
+            </text>
+        </g>
+        <g transform="translate(1909,2146.5)" id="shape36">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="28.3" y="24.5">BUFFER | 64 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2146.34,2146.5)" id="shape37">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="28.3" y="24.5">BUFFER | 64 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2383.69,2146.5)" id="shape38">
+            <path stroke="#999999" d="M148.6,38L148.6,0L0,0L0,38L148.6,38z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="13.3" y="24.5">m_pLastSmallBuffer</tspan>
+            </text>
+        </g>
+        <g transform="translate(2383.69,2165.5)" id="shape39">
+            <path stroke="#323232" d="M0,0L-43.5,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.7,3C-43.2,2.1,-43.5,1.1,-43.5,0C-43.5,-1.1,-43.2,-2.1,-42.7,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2146.34,2165.5)" id="shape40">
+            <path stroke="#323232" d="M0,0L-43.4,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.6,3C-43.2,2.1,-43.4,1.1,-43.4,0C-43.4,-1.1,-43.2,-2.1,-42.6,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(1909,2199.5)" id="shape41">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="24.3" y="24.5">BUFFER | 256 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2146.34,2199.5)" id="shape42">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="26.3" y="24.5">BUFFER |256 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2383.69,2199.5)" id="shape43">
+            <path stroke="#999999" d="M148.6,38L148.6,0L0,0L0,38L148.6,38z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="8.8" y="24.5">m_pLastMiddleBuffer</tspan>
+            </text>
+        </g>
+        <g transform="translate(1909,2252.5)" id="shape44">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="20.3" y="24.5">BUFFER | 1024 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2146.34,2252.5)" id="shape45">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="22.3" y="24.5">BUFFER |1024 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2383.69,2252.5)" id="shape46">
+            <path stroke="#999999" d="M148.6,38L148.6,0L0,0L0,38L148.6,38z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="12.8" y="24.5">m_pLastLargeBuffer</tspan>
+            </text>
+        </g>
+        <g transform="translate(2383.69,2218.5)" id="shape47">
+            <path stroke="#323232" d="M0,0L-43.5,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.7,3C-43.2,2.1,-43.5,1.1,-43.5,0C-43.5,-1.1,-43.2,-2.1,-42.7,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2146.34,2218.5)" id="shape48">
+            <path stroke="#323232" d="M0,0L-43.4,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.6,3C-43.2,2.1,-43.4,1.1,-43.4,0C-43.4,-1.1,-43.2,-2.1,-42.6,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2383.69,2271.5)" id="shape49">
+            <path stroke="#323232" d="M0,0L-43.5,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.7,3C-43.2,2.1,-43.5,1.1,-43.5,0C-43.5,-1.1,-43.2,-2.1,-42.7,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2146.34,2271.5)" id="shape50">
+            <path stroke="#323232" d="M0,0L-43.4,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.6,3C-43.2,2.1,-43.4,1.1,-43.4,0C-43.4,-1.1,-43.2,-2.1,-42.6,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(1909,2308.5)" id="shape51">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="15.3" y="24.5">BUFFER | >1024 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2146.34,2308.5)" id="shape52">
+            <path stroke="#fd8851" d="M189.5,38L189.5,0L0,0L0,38L189.5,38z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="17.3" y="24.5">BUFFER |>1024 字节 | int</tspan>
+            </text>
+        </g>
+        <g transform="translate(2383.69,2308.5)" id="shape53">
+            <path stroke="#999999" d="M148.6,38L148.6,0L0,0L0,38L148.6,38z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="11.8" y="24.5">m_pLastSuperBuffer</tspan>
+            </text>
+        </g>
+        <g transform="translate(2383.69,2327.5)" id="shape54">
+            <path stroke="#323232" d="M0,0L-43.5,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.7,3C-43.2,2.1,-43.5,1.1,-43.5,0C-43.5,-1.1,-43.2,-2.1,-42.7,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2146.34,2327.5)" id="shape55">
+            <path stroke="#323232" d="M0,0L-43.4,0" fill="none"/>
+            <path stroke="#323232" d="M-47.8,0L-42.6,3C-43.2,2.1,-43.4,1.1,-43.4,0C-43.4,-1.1,-43.2,-2.1,-42.6,-3L-47.8,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(1936.42,1247)" id="shape56">
+            <path stroke="#323232" d="M0,0L0,19L306.8,19L306.8,136.5" fill="none"/>
+            <path stroke="#323232" d="M312.8,124.5L306.8,136.5L300.8,124.5" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="26" height="19" x="195.2" y="9.5" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="195.2" y="24.5">继承</tspan>
+            </text>
+        </g>
+        <g transform="translate(2870,876)">
+            <path stroke="#6d6d6d" d="M11,0L830,0C836.1,0,841,4.9,841,11L841,843.3C841,849.4,836.1,854.3,830,854.3L11,854.3C4.9,854.3,0,849.4,0,843.3L0,11C0,4.9,4.9,0,11,0z" stroke-dasharray="2,5" fill="none" id="shape57"/>
+        </g>
+        <g transform="translate(2910,916)" id="shape59">
+            <path d="M0,0L761,0L761,774.3L0,774.3L0,0zM0,103.1L761,103.1L0,103.1zM0,291.4L761,291.4L0,291.4zM0,397.7L761,397.7L0,397.7zM0,586L761,586L0,586z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L761,0L761,774.3L0,774.3L0,0zM0,103.1L761,103.1L0,103.1zM0,291.4L761,291.4L0,291.4zM0,397.7L761,397.7L0,397.7zM0,586L761,586L0,586z" fill="none"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="200.5" y="46.1">template &lt;int BUFF_SIZE, int ONE_TIME_COUNT = 1024></tspan>
+                <tspan x="296" y="67.1" class="st12">class ElsaCMemPool </tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="183.8">- ElsaSDataBlock m_pDataPtr; 整体数据区，记录所有分配出去的数据</tspan>
+                <tspan x="4" y="202.8"># ElsaNContainer::ElsaCVector&lt;void *> m_vecFreeList; // 空闲队列，记录所有空闲可分配空间，以AllocBufferHead为单位</tspan>
+                <tspan x="4" y="221.8"># ElsaNContainer::ElsaCVector&lt;void *> m_vecAllList;// 整体队列，记录所有空闲，以AllocBufferHead为单位</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="340.6">+void* _Alloc/Alloc(const char *file_name, int line); 分配内存空闲</tspan>
+                <tspan x="4" y="359.6">+void _Free(void *ptr, const char *file_name, int line); 释放内存空间</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="416.7">分配大小固定的内存，适用于频繁创建的类或者结构体，其中内存分配的大小就是模板中的BUFF_SIZE。</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="605">分配内存的时候会先从下面的空闲队列中分配一个{AllocBufferHead|BUFF_SIZE}，找不到再分配一个ElsaSDataBlock块</tspan>
+            </text>
+        </g>
+        <g transform="translate(3076.31,1343.5)" id="shape60">
+            <path stroke="#fd8851" d="M543.4,54L543.4,0L0,0L0,54L543.4,54z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="23.7" y="32.5">[ElsaSDataBlock | {AllocBuffHead | BUFF_SIZE}  | ... | {AllocBuffHead | BUFF_SIZE}]</tspan>
+            </text>
+        </g>
+        <g transform="translate(2929.31,1343.5)" id="shape61">
+            <path stroke="#999999" d="M121,54L121,0L0,0L0,54L121,54z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="14" y="23">ElsaSDataBlock </tspan>
+                <tspan x="24" y="42">m_pDataPtr</tspan>
+            </text>
+        </g>
+        <g transform="translate(3076.31,1437.5)" id="shape62">
+            <path stroke="#fd8851" d="M543.4,54L543.4,0L0,0L0,54L543.4,54z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="23.7" y="32.5">[ElsaSDataBlock | {AllocBuffHead | BUFF_SIZE}  | ... | {AllocBuffHead | BUFF_SIZE}]</tspan>
+            </text>
+        </g>
+        <g transform="translate(3050.31,1370.5)" id="shape63">
+            <path stroke="#323232" d="M0,0L21.6,0" fill="none"/>
+            <path stroke="#323232" d="M26,0L20.8,-3C21.3,-2.1,21.6,-1.1,21.6,0C21.6,1.1,21.3,2.1,20.8,3L26,0" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(3619.69,1370.5)" id="shape64">
+            <path stroke="#323232" d="M0,0L32,0L32,51L-575.4,51L-575.4,94L-547.8,94" fill="none"/>
+            <path stroke="#323232" d="M-543.4,94L-548.6,91C-548.1,91.9,-547.8,92.9,-547.8,94C-547.8,95.1,-548.1,96.1,-548.6,97L-543.4,94" stroke-width="1" stroke-linecap="round" fill="#323232"/>
+        </g>
+        <g transform="translate(2952.95,1569)" id="shape65">
+            <path stroke="#999999" d="M157.8,64.9L157.8,0L0,0L0,64.9L157.8,64.9z" fill-rule="evenodd" fill="#999999"/>
+            <text xml:space="preserve" class="st9">
+                <tspan x="14.4" y="28.4">ElsaCVector&lt;void *> </tspan>
+                <tspan x="35.9" y="47.4">m_vecFreeList</tspan>
+            </text>
+        </g>
+        <g transform="translate(3110.78,1569)" id="shape66">
+            <path stroke="#ffffff" d="M172.4,64.9L172.4,0L0,0L0,64.9L172.4,64.9z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st13">
+                <tspan x="4.2" y="37"> {AllocBuffHead | BUFF_SIZE}</tspan>
+            </text>
+        </g>
+        <g transform="translate(3283.2,1569)" id="shape67">
+            <path stroke="#ffffff" d="M172.4,64.9L172.4,0L0,0L0,64.9L172.4,64.9z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st13">
+                <tspan x="4.2" y="37"> {AllocBuffHead | BUFF_SIZE}</tspan>
+            </text>
+        </g>
+        <g transform="translate(3455.63,1569)" id="shape68">
+            <path stroke="#ffffff" d="M172.4,64.9L172.4,0L0,0L0,64.9L172.4,64.9z" fill-rule="evenodd" fill="#fd8851"/>
+            <text xml:space="preserve" class="st13">
+                <tspan x="4.2" y="37"> {AllocBuffHead | BUFF_SIZE}</tspan>
+            </text>
+        </g>
+        <g transform="translate(2188.35,824.92)" id="shape69">
+            <path stroke="#323232" d="M0,0L0,59.1L1104.3,59.1L1104.3,91.1" fill="none"/>
+            <path stroke="#323232" d="M1110.3,79.1L1104.3,91.1L1098.3,79.1" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="26" height="19" x="748.7" y="49.6" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="748.7" y="64.6">继承</tspan>
+            </text>
+        </g>
+        <g transform="translate(2910,1814)" id="shape70">
+            <path d="M0,0L761,0L761,266.7L0,266.7L0,0zM0,62.5L761,62.5L0,62.5zM0,101.5L761,101.5L0,101.5zM0,227L761,227L0,227z" fill-rule="evenodd" fill="#ffffff"/>
+            <path stroke="#e54648" d="M0,0L761,0L761,266.7L0,266.7L0,0zM0,62.5L761,62.5L0,62.5zM0,101.5L761,101.5L0,101.5zM0,227L761,227L0,227z" fill="none"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="207" y="25.7">template &lt;typename T, int ONE_TIME_COUNT = 1024></tspan>
+                <tspan x="304.5" y="46.7" class="st12">class ElsaCObjPool</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="160.2">+ T *_Alloc/Alloc(const char *fn, int line)</tspan>
+                <tspan x="4" y="179.2">+ void _Free/Free(T *ptr, const char *fn, int line)</tspan>
+            </text>
+            <text xml:space="preserve" class="st1">
+                <tspan x="4" y="246">自动初始化和析构的大小固定内存分配器,适用于频繁创建的类或者结构体，并且每次请求新内存时都会自动构造，回收时自动析构</tspan>
+            </text>
+        </g>
+        <g transform="translate(3292.67,1690.29)" id="shape71">
+            <path stroke="#323232" d="M0,0L0,123.7" fill="none"/>
+            <path stroke="#323232" d="M6,111.7L0,123.7L-6,111.7" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <rect width="26" height="19" x="-12" y="75.3" fill="#ffffff"/>
+            <text xml:space="preserve" class="st1">
+                <tspan x="-12" y="90.3">继承</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

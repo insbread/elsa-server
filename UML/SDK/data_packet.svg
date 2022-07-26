@@ -1,0 +1,109 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" height="1036" viewBox="0 0 1610 1036" width="1610" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css"><![CDATA[
+.st2 {fill:#191919;font-family:微软雅黑;font-size:10pt}
+.st3 {fill:#191919;font-family:微软雅黑;font-size:12pt}
+.st1 {fill:#191919;font-family:微软雅黑;font-size:13pt;font-weight:bold}
+.st4 {font-weight:bold}
+]]></style>
+    <defs/>
+    <g transform="translate(3,-7)">
+        <g transform="translate(-2,8)">
+            <path id="shape1" d="M11,0L768,0C774.1,0,779,4.9,779,11L779,1023C779,1029.1,774.1,1034,768,1034L11,1034C4.9,1034,0,1029.1,0,1023L0,11C0,4.9,4.9,0,11,0z" fill="none" stroke="#6d6d6d" stroke-dasharray="2,5"/>
+        </g>
+        <g id="shape3" transform="translate(38,48)">
+            <path d="M0,0L699,0L699,954L0,954L0,0zM0,67.3L699,67.3L0,67.3zM0,191.6L699,191.6L0,191.6zM0,696L699,696L0,696z" fill="#ffffff" fill-rule="evenodd"/>
+            <path d="M0,0L699,0L699,954L0,954L0,0zM0,67.3L699,67.3L0,67.3zM0,191.6L699,191.6L0,191.6zM0,696L699,696L0,696z" fill="none" stroke="#fd8851"/>
+            <text xml:space="preserve" class="st1">
+                <tspan y="39.7" x="226.5">class ElsaCDataPacketReader</tspan>
+            </text>
+            <text xml:space="preserve" class="st2">
+                <tspan y="106.5" x="4"># char *m_cpMem;     //  内存始址</tspan>
+                <tspan y="125.5" x="4">#  char *m_cpEnd;     //  内存结束位置的下一个地址</tspan>
+                <tspan y="144.5" x="4">#  char *m_cpOffset;  //  当前可读写的偏移量位置</tspan>
+                <tspan y="163.5" x="4">#  char *m_cpDataEnd; //  当前存放的数据结束位置</tspan>
+            </text>
+            <text xml:space="preserve" class="st2">
+                <tspan y="230.8" x="4">+ size_t ReadBuf(void *buf, size_t size);	//从缓冲区中读取size个字节数据到buf中</tspan>
+                <tspan y="249.8" x="4">+ template &lt;typename T> T ReadAtom(); //读取原子数据，T表示原子数据类型</tspan>
+                <tspan y="268.8" x="4">+ size_t RawReadStringLen(char *str, size_t real_len); //读取unsigned short长度的ASCII字符串</tspan>
+                <tspan y="287.8" x="4">+ const char *ReadStringBuf(); // 读取unsigned int超长的ASCII字符串</tspan>
+                <tspan y="344.8" x="4">+ size_t GetSize();// 获取整个物理内存的大小</tspan>
+                <tspan y="363.8" x="4">+ size_t GetLength() ;//  当前保存的数据长度</tspan>
+                <tspan y="382.8" x="4">+ size_t GetPosition() ; //  获取当前数据可读的位置</tspan>
+                <tspan y="401.8" x="4">+ size_t GetAvaliableLength() ;//  查看当前缓冲区还有多少数据没有读取完毕</tspan>
+                <tspan y="420.8" x="4">+ char *GetMemoryPtr();// 获取缓冲区起始地址</tspan>
+                <tspan y="439.8" x="4">+ char *GetOffsetPtr();// 获取当前数据缓冲区地址</tspan>
+                <tspan y="458.8" x="4">+ char *GetPositionPtr(size_t pos); // 获取指定偏移量的指针</tspan>
+                <tspan y="477.8" x="4">+ size_t AdjustOffset(int64_t adjust_offset);// 调整当前偏移指针，同时返回调整后的偏移值，内部会对偏移指针做限</tspan>
+                <tspan y="496.8" x="4">制，避免指向不合理的区域</tspan>
+                <tspan y="534.8" x="4">   </tspan>
+                <tspan y="553.8" x="4">+ template &lt;typename T> ElsaCDataPacketReader &amp;operator>>(T &amp;val) ;/*读取类型T的数据，既可以读取原子类</tspan>
+                <tspan y="572.8" x="4">型，也可以读取其他类型(除了类之外)*/</tspan>
+                <tspan y="591.8" x="4">+ ElsaCDataPacketReader &amp;operator>>(const char *&amp;str); 将数据读取到str中，读取unsigned int长度的字符串类型</tspan>
+                <tspan y="629.8" x="4"># template &lt;typename TL> size_t RawReadStringLen(char *str, size_t read_len); 读取长度类型是TL的ANSI字符串数</tspan>
+                <tspan y="648.8" x="4">据，读取指定长度的字符串到str中</tspan>
+                <tspan y="667.8" x="4"># template &lt;typename TS, typename TL> const TS *RawReadStringPtr();读取长度类型是TL数据类型是TS的数据</tspan>
+            </text>
+            <text xml:space="preserve" class="st2">
+                <tspan y="715" x="4">数据读取器DataPacketReader，这个类主要实现了多种读取缓冲区数据的功能：</tspan>
+                <tspan y="734" x="4">功能1：以二进制流读取缓冲区，此时数据是以字节为单位进行读取，没有边界的区别(对应于UDP的类型)；</tspan>
+                <tspan y="753" x="4">功能2：以某个类型为单位进行读取(除了类之外)，一次读取一个单位</tspan>
+                <tspan y="772" x="4">功能3：以字符串形式读取缓冲区，此时数据是以一个完整的字符串为单位进行读取，存在边界；</tspan>
+                <tspan y="791" x="4">        每一个字符串格式是[2字节字符长度数据][字符串字节数据，字符串长度在65536以内][字符串终止字符0]；</tspan>
+                <tspan y="810" x="4"> 或者</tspan>
+                <tspan y="829" x="4">        每一个字符串格式是[4字节字符长度数据][字符串字节数据，字符串长度在4294967295以内][字符串终止字符0]；</tspan>
+                <tspan y="848" x="4">每一次读取字符串之后，当前缓冲区偏移量offset总是跳过当前字符串指向下一个可读的字符串起始位置。 即使当前读取</tspan>
+                <tspan y="867" x="4">的字符串不完整也会跳过当前的字符串。</tspan>
+            </text>
+        </g>
+        <image height="50" y="0" id="shape4" transform="translate(78.26,927.7)" width="574" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" x="0"/>
+        <g id="shape5" transform="translate(926,48)">
+            <path d="M0,0L680,0L680,672L0,672L0,0zM0,42L680,42L0,42zM0,100L680,100L0,100zM0,633L680,633L0,633z" fill="#ffffff" fill-rule="evenodd"/>
+            <path d="M0,0L680,0L680,672L0,672L0,0zM0,42L680,42L0,42zM0,100L680,100L0,100zM0,633L680,633L0,633z" fill="none" stroke="#ffbf28"/>
+            <text xml:space="preserve" class="st3">
+                <tspan y="27" x="253">class </tspan>
+                <tspan x="293" class="st4">ElsaCDataPacket</tspan>
+            </text>
+            <text xml:space="preserve" class="st2">
+                <tspan y="67" x="4"># ElsaCBaseAllocator *m_pAllocator;</tspan>
+                <tspan y="86" x="4"># int m_iAllocCount; //  每次内存扩展时，都需要额外添加的尾部防卫区</tspan>
+            </text>
+            <text xml:space="preserve" class="st2">
+                <tspan y="125" x="4">+void Empty(); // 物理清空缓冲区，注意只有指定了内存分配器才会释放内存，否则是由外部来释放内存</tspan>
+                <tspan y="144" x="4"># void SetSize(size_t new_size);重新设置数据缓冲区的长度，并拷贝原来的数据到新的缓冲区中; 该函数不保证指针</tspan>
+                <tspan y="163" x="4">的有效性，所不对外开放</tspan>
+                <tspan y="201" x="4">+void SetAllocSize(int size)；</tspan>
+                <tspan y="220" x="4">+void SetAllocator(ElsaCBaseAllocator *allocator)</tspan>
+                <tspan y="239" x="4">+void SetLength(size_t new_length)；	只能设置更长的长度，保证内部各个指针的有效性</tspan>
+                <tspan y="258" x="4">+size_t SetPosition(size_t newPos)；设置偏移量，注意如果设置的偏移量比现有物理内存还要大，那么会自动进行</tspan>
+                <tspan y="277" x="4">扩充</tspan>
+                <tspan y="296" x="4">+ size_t GetAvaliabeleBufLen(); // 获取当前可写的内存剩余空间</tspan>
+                <tspan y="315" x="4">+size_t AdjustOffset(int64_t adjust_offset)； 调整并设置偏移量，这里设置的偏移量可正可负，如果负值过大会限</tspan>
+                <tspan y="334" x="4">制偏移量指向起始位置，如果正值过大那么会先将内存进行扩充再限制；</tspan>
+                <tspan y="353" x="4">+size_t Reverse(size_t newSize); 扩充内存长度，返回原来的长度</tspan>
+                <tspan y="391" x="4"># template &lt;typename TL> void RawWriteStringLen(const char *str, size_t len)；按照指定格式写入短字符串以</tspan>
+                <tspan y="410" x="4">及字符串数据，TL是长度的类型</tspan>
+                <tspan y="429" x="4">+void WriteBuf(const void *buf, size_t size);  写入二进制数据，会自动扩充内存区长度</tspan>
+                <tspan y="448" x="4">+ template &lt;typename T> void WriteAtom(const T &amp;data); 写入原子数据，原子数据指的是int，long，char等等</tspan>
+                <tspan y="467" x="4">+ void WriteString(const char *str, size_t len = -1); // 写入短字符串类型</tspan>
+                <tspan y="486" x="4">+ void WriteStringBuf(const char *str, size_t len = -1); // 写入长字符串类型</tspan>
+                <tspan y="505" x="4">+ int WriteString_s(char *buf, int maxLen, const char *str); // 将str按照指定格式写到buf中</tspan>
+                <tspan y="543" x="4">+ template &lt;typename T> ElsaCDataPacket &amp;operator&lt;&lt;(const T &amp;val)// 将变量val原子数据写入到缓冲区中</tspan>
+                <tspan y="562" x="4">(甚至可以是结构体，但不能是类)</tspan>
+                <tspan y="581" x="4">+ ElsaCDataPacket &amp;operator&lt;&lt;(const char *val); // 写字符串</tspan>
+                <tspan y="600" x="4">+ ElsaCDataPacket &amp;operator&lt;&lt;(char *val); // 写字符串</tspan>
+                <tspan y="619" x="4">+ ElsaCDataPacket &amp;operator=(const ElsaCDataPacket &amp;); //  禁止使用赋值函数，会被asset报错</tspan>
+            </text>
+            <text xml:space="preserve" class="st2">
+                <tspan y="652" x="4">在原来数据读取的功能上，增加了数据写入的功能，分别和读出的功能是一一对应的</tspan>
+            </text>
+        </g>
+        <g id="shape6" transform="matrix(1,-0.07,0.07,1,737,81.7)">
+            <path d="M0,0L183.4,0" fill="none" stroke="#303030"/>
+            <path stroke-width="1" stroke-linecap="round" d="M183.4,-3L189.4,0L183.4,3L183.4,-3" fill="#303030" stroke="#303030"/>
+            <text transform="matrix(1,0.07,-0.07,1,0.2,-6.3)" xml:space="preserve" class="st2">
+                <tspan y="5.5" x="82.7">继承</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
