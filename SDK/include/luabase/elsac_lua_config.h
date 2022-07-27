@@ -14,6 +14,9 @@
 #include "string/elsac_string_ex.h"
 
 #include "container/elsac_vector.h"
+/*
+    主要实现从lua脚本的中读取配置，配置以表的形式存放
+*/
 class ElsaCBaseLuaConfig : public ElsaCBaseLua
 {
 public:
