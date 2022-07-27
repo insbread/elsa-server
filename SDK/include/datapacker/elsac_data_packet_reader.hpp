@@ -134,7 +134,7 @@ public:
     {
         return m_cpDataEnd - m_cpMem;
     }
-    //  获取当前数据可读的位置
+    //  获取数据包当前读写位置字节偏移量
     inline size_t GetPosition()
     {
         return m_cpOffset - m_cpMem;

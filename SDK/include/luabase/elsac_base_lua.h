@@ -31,7 +31,7 @@ public:
 protected:
     // 创建lua虚拟机
     virtual lua_State *CreateLuaVM();
-    // 打开基础库。默认会打开base、string、math以及table库。返回true表示成功。
+    // 打开基础库。默认会打开base、string、math、io、debug、table以及package库。返回true表示成功。
     virtual bool OpenBaseLibs();
     // 注册本地函数库，返回true表示成功
     virtual bool RegistLocalLibs();
@@ -53,14 +53,14 @@ protected:
     bool Pcall(const int args, const int results, const int errfunc);
     //检查脚本调用返回值，如果nError不为成功值则会输出错误内容并返回false，且nError的值被保存在m_nLastError中。
     inline bool LcCheck(int err);
-    /*** 编译脚本为字节码
+    /*** 编译脚本为字节码，并将编译后的二进制脚本存放到packet中
      * @param {lua_State} *L lua虚拟机
      * @param {char} *content 文本形式的lua脚本内存
      * @param {ElsaCDataPacket} &packet 二进制输出流
      * @return {bool} 成功返回true，失败返回false
      */
     bool CompileLua(lua_State *L, const char *content, ElsaCDataPacket &packet);
-    /*** 二进制输出流Writer
+    /*** 二进制输出流Writer，其实就是将p的数据写入u中，和lua没有什么关系
      * @param {lua_State} *L lua虚拟机
      * @param {void} *p 待写入的二进制内存
      * @param {size_t} size 二进制内容长度
@@ -71,12 +71,13 @@ protected:
 
 public:
     /* 设置脚本内容，会完成如下核心操作：
-       1、调用当前脚本的卸载函数
-       2、删除当前的虚拟机对象
-       3、重新创建虚拟机
-       4、打开基础函数库
-       5、注册本地函数库
-       6、调用初始化函数
+       1、调用当前脚本的卸载函数CallFinal();
+       2、删除当前的虚拟机对象（可选，当txt=nullptr时会销毁）
+       3、重新创建虚拟机CreateLuaVM()
+       4、打开基础函数库OpenBaseLibs()
+       5、注册本地函数库RegistLocalLibs()
+       6、加载txt对应的脚本函数并运行Pcall
+       7、调用初始化函数CallInit()
        如果参数sText为NULL或为空字符串则会销毁当前虚拟机且不创建新虚拟机。
        函数返回true表示设置脚本成功，其他值表示发生错误。
     */
@@ -89,7 +90,7 @@ public:
      * @return {bool} 成功返回true；失败返回false
      */
     bool SetBinScript(const char *script, ElsaCDataPacket &packet, const char *name = nullptr, bool compile = false);
-    /*** 重置二进制脚本
+    /*** 重置二进制脚本，packet保存了二进制脚本
      * @param {ElsaCDataPacket} &packet 脚本二进制数据
      * @return {bool}
      */

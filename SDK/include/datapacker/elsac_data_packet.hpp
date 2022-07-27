@@ -121,7 +121,7 @@ public:
 
     // 在ElsaCDataPacket中，凡是调整长度、偏移位置都会进行长度的扩充，然后再进行偏移量的纠正。
 
-    // 设置长度，并且只能设置更长的长度，能够保证内部各种变量指针的有效性
+    // 设置长度，只有更长的长度才会重新分配空间，否则只是修改各个内部变量指针的位置，将数据结束指针指向开头，逻辑清空数据(会保证内部各种变量指针的有效性)
     inline void SetLength(size_t new_length)
     {
         if (new_length > static_cast<size_t>(m_cpEnd - m_cpMem))
