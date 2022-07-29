@@ -278,7 +278,6 @@ public:
     }
 };
 
-int ElsaCRefObjectStudent::m_objCount = 0;
 
 inline void ElsaCRefObjectTestFunc()
 {

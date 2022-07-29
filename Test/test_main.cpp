@@ -19,7 +19,6 @@
 // #include "lualib.h"
 // }
 
-
 #include "elsac_second_time.h"
 #include "memory/elsac_memory_counter.hpp"
 #include "memory/elsac_base_allocator.hpp"
@@ -40,6 +39,7 @@
 #include "elsac_ref_obj.hpp"
 #include "string/elsac_ansi_string.hpp"
 #include "string/elsac_ref_string.hpp"
+#include "elsac_stream.h"
 
 int main()
 {
@@ -67,6 +67,7 @@ int main()
     // ElsaCRefObjectTestFunc();
     // ElsaCAnsiStringTestFunc();
     // ElsaCCTRefStringTestFunc();
+    ElsaCFileStreamTestFunc();
 
     /* lua测试代码
     lua_State *L = luaL_newstate();

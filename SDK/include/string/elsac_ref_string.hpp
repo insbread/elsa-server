@@ -215,7 +215,7 @@ typedef ElsaNString::ElsaCCRefAnsiString ElsaCRefString;
 #ifdef TEST_DEBUG
 #include <iostream>
 using namespace std;
-void ElsaCCTRefStringTestFunc()
+inline void ElsaCCTRefStringTestFunc()
 {
     ElsaCRefString str1("I am a cool boy!");
     cout << "Raw str: " << str1.RawStr() << endl;

@@ -1,12 +1,12 @@
-cmake_minimum_required (VERSION 2.8.1)
+cmake_minimum_required(VERSION 2.8.1)
 project(Test)
 
 # 设置到顶层的目录
-set(TOP_DIR ${PROJECT_SOURCE_DIR}/..)   
+set(TOP_DIR ${PROJECT_SOURCE_DIR}/..)
 
 include_directories(
-    ${TOP_DIR}/SDK/include
-    ${TOP_DIR}/Common/include/lua-5.1.5/src
+  ${TOP_DIR}/SDK/include
+  ${TOP_DIR}/Common/include/lua-5.1.5/src
 )
 
 link_directories(${TOP_DIR}/Common/libs)
@@ -22,21 +22,24 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/TestPath)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/TestPath)
 
 # 添加链接库
-set(TEST_LIBRARIES
+if((${CMAKE_BUILD_TYPE}) STREQUAL "Release")
+  set(_DEBUG 0)
+  set(TEST_LIBRARIES
     pthread
-    lua
-)
-
-if ( (${CMAKE_BUILD_TYPE}) STREQUAL "Release" )
-   set( _DEBUG  0 )
-else ()
-   set( _DEBUG  1 )
+    liblua-5.1_r.a
+  )
+else()
+  set(_DEBUG 1)
+  set(TEST_LIBRARIES
+    pthread
+    liblua-5.1_d.a
+  )
 endif()
 
-if ( _DEBUG )
-  set( EXE_NAME test_d )
+if(_DEBUG)
+  set(EXE_NAME test_d)
 else()
-  set( EXE_NAME test_r )
+  set(EXE_NAME test_r)
 endif()
 
 add_executable(${EXE_NAME} ${Test_CODELIST})
