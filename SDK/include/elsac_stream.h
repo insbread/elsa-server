@@ -117,13 +117,13 @@ namespace ElsaNStream
     };
 };
 
-// #define TEST_DEBUG
+#define TEST_DEBUG
 #ifdef TEST_DEBUG
 #include <iostream>
 using namespace std;
 using namespace ElsaNStream;
 
-inline void ElsaCFileStreamTestFunc()
+inline void ElsaCFileStreamTestReadFunc()
 {
     const char *filename = "/home/zhenjie/project/snowlegend/tmp/test_file.txt";
     ElsaCFileStream fm(filename, ElsaCFileStream::ElsaEFileAccessType::faRead, nullptr);
@@ -133,6 +133,17 @@ inline void ElsaCFileStreamTestFunc()
 
     int read_len = fm.Read(buffer, 1024);
     cout << buffer << endl;
+}
+
+inline void ElsaCFileStreamTestWriteFunc()
+{
+    const char *filename = "/home/zhenjie/project/snowlegend/tmp/test_file.txt";
+    ElsaCFileStream fm(filename, ElsaCFileStream::ElsaEFileAccessType::faWrite, nullptr);
+
+    char *buffer = new char[1024];
+    strcpy(buffer, "Hi");
+
+    int read_len = fm.Write(buffer, 2);
 }
 
 #endif

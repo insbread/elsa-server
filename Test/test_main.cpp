@@ -67,7 +67,8 @@ int main()
     // ElsaCRefObjectTestFunc();
     // ElsaCAnsiStringTestFunc();
     // ElsaCCTRefStringTestFunc();
-    ElsaCFileStreamTestFunc();
+    ElsaCFileStreamTestReadFunc();
+    ElsaCFileStreamTestWriteFunc();
 
     /* lua测试代码
     lua_State *L = luaL_newstate();
